@@ -16,8 +16,8 @@ export function TestimonialsSection() {
       {/* About Image */}
       <div className="relative aspect-[16/9] w-full">
         <Image
-          src="/images/3d4046a0-b072-4b07-941f-9141ee3ed4a7.png"
-          alt="Mountain peaks at sunrise"
+          src="https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=2000"
+          alt="Serengeti sunset"
           fill
           className="object-cover"
         />

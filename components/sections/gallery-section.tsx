@@ -12,14 +12,14 @@ export function GallerySection() {
   const lastScrollRef = useRef(0);
 
   const images = [
-    { src: "/images/bottle-bike.png", alt: "Thermal bottle on bike" },
-    { src: "/images/bottle-lake.png", alt: "Thermal bottle by lake" },
-    { src: "/images/bottle-water.png", alt: "Thermal bottle in water" },
-    { src: "/images/bottle-stream.png", alt: "Thermal bottle by stream" },
-    { src: "/images/bottle-fire.png", alt: "Thermal bottle by fire" },
-    { src: "/images/bottle-snow.png", alt: "Thermal bottle in snow" },
-    { src: "/images/bottle-mountain.png", alt: "Thermal bottle on mountain" },
-    { src: "/images/bottle-canyon.png", alt: "Thermal bottle at canyon" },
+    { src: "https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=1200", alt: "Serengeti National Park - Luxury Safari" },
+    { src: "https://images.unsplash.com/photo-1549194388-f61be84a6e9e?q=80&w=1200", alt: "Ngorongoro Crater - Exclusive Wildlife Reserve" },
+    { src: "https://images.unsplash.com/photo-1589553416260-178fb95ee297?q=80&w=1200", alt: "Mount Kilimanjaro - Premium Trekking Experience" },
+    { src: "https://images.unsplash.com/photo-1532581133596-f642456f9160?q=80&w=1200", alt: "Tarangire National Park - Bespoke Safari" },
+    { src: "https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?q=80&w=1200", alt: "Zanzibar Archipelago - Luxury Retreat" },
+    { src: "https://images.unsplash.com/photo-1511497584788-876760111969?q=80&w=1200", alt: "Ruaha National Park - Private Wilderness" },
+    { src: "https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?q=80&w=1200", alt: "African Sunset - Photography Tour" },
+    { src: "https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?q=80&w=1200", alt: "Cultural Heritage Experience - Luxury Tourism" },
   ];
 
   // Calculate section height based on content width
@@ -94,6 +94,16 @@ export function GallerySection() {
       className="relative bg-background"
       style={{ height: sectionHeight }}
     >
+      {/* Gallery Header */}
+      <div className="absolute top-0 left-0 right-0 z-10 px-6 py-8 md:px-12 lg:px-20">
+        <h2 className="text-3xl font-medium tracking-tight text-foreground md:text-4xl lg:text-5xl">
+          Luxury Experiences Await.
+        </h2>
+        <p className="mt-3 text-sm text-muted-foreground max-w-md">
+          Explore Africa's most exclusive destinations through our curated collection of bespoke tourism experiences.
+        </p>
+      </div>
+
       {/* Sticky container */}
       <div className="sticky top-0 h-screen overflow-hidden">
         <div className="flex h-full items-center">

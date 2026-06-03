@@ -60,38 +60,38 @@ function ScrollRevealText({ text }: { text: string }) {
 
 const sideImages = [
   {
-    src: "https://images.unsplash.com/photo-1476610182048-b716b8518aae?q=80&w=1000",
-    alt: "Forest trail",
+    src: "https://images.unsplash.com/photo-1493246507139-91e8bef99c02?q=80&w=1000",
+    alt: "Luxury Lodge",
     position: "left",
     span: 1,
   },
   {
-    src: "https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?q=80&w=1000",
-    alt: "Mountain peak",
+    src: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?q=80&w=1000",
+    alt: "Savanna Wildlife",
     position: "left",
     span: 1,
   },
   {
-    src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1000",
-    alt: "Alpine landscape",
+    src: "https://images.unsplash.com/photo-1589553416260-178fb95ee297?q=80&w=1000",
+    alt: "Kilimanjaro Summit",
     position: "right",
     span: 1,
   },
   {
-    src: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1000",
-    alt: "Snow mountain",
+    src: "https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?q=80&w=1000",
+    alt: "Zanzibar Beach",
     position: "right",
     span: 1,
   },
 ];
 
-export function TechnologySection() {
+export function SafariExperience() {
   const sectionRef = useRef<HTMLElement>(null);
   const textSectionRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [textProgress, setTextProgress] = useState(0);
   
-  const descriptionText = "Experience outdoor gear reimagined with cutting-edge technology. Alpine & Forest accessories combine ultra-lightweight materials, intelligent temperature control, and weather-resistant engineering to elevate every adventure. From mountain peaks to forest trails, your gear adapts to the conditions.";
+  const descriptionText = "Experience outdoor gear reimagined with cutting-edge technology. Alpine & Forest accessories combine ultra-lightweight materials, intelligent temperature control, and weather-resistant engineering to elevate every adventure. From Savanna Wildlifes to Luxury Lodges, your gear adapts to the conditions.";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -198,7 +198,7 @@ export function TechnologySection() {
               }}
             >
               <Image
-                src="https://images.unsplash.com/photo-1501555088652-021faa106b9b?q=80&w=2000"
+                src="https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=2000"
                 alt="Aerial view of camping expedition in wilderness"
                 fill
                 className="object-cover"

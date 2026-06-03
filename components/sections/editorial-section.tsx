@@ -1,10 +1,10 @@
 "use client";
 
 const specs = [
-  { label: "Weight", value: "400g" },
-  { label: "Capacity", value: "0.5L - 2L" },
-  { label: "Setup", value: "2 min" },
-  { label: "Packed size", value: "30 x 15 cm" },
+  { label: "National Parks", value: "16+" },
+  { label: "Expertise", value: "20y" },
+  { label: "Peak Elevation", value: "5895m" },
+  { label: "Guest Satisfaction", value: "100%" },
 ];
 
 export function EditorialSection() {
