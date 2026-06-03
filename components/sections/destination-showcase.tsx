@@ -1,6 +1,7 @@
 "use client";
 
 import { FadeImage } from "@/components/fade-image";
+import Image from "next/image";
 
 const destinations = [
   {
@@ -8,28 +9,28 @@ const destinations = [
     name: "Serengeti National Park",
     description: "The theater of the Great Migration",
     price: "Explore",
-    image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=800",
+    image: "/images/adventure/wildebeest-herd-running-serengeti-eliza-deacon-mr.jpg",
   },
   {
     id: 2,
     name: "Ngorongoro Crater",
     description: "A natural sanctuary of unrivaled beauty",
     price: "Explore",
-    image: "https://images.unsplash.com/photo-1549194388-f61be84a6e9e?q=80&w=800",
+    image: "/images/adventure/ngorongoro-crater-floor-teaming-with-game.jpg",
   },
   {
     id: 3,
     name: "Mount Kilimanjaro",
     description: "The roof of Africa beckons",
     price: "Explore",
-    image: "https://images.unsplash.com/photo-1589553416260-178fb95ee297?q=80&w=800",
+    image: "/images/mountains/Mount-Kilimanjaro.webp",
   },
   {
     id: 4,
     name: "Tarangire National Park",
     description: "The land of giants and baobabs",
     price: "Explore",
-    image: "https://images.unsplash.com/photo-1532581133596-f642456f9160?q=80&w=800",
+    image: "/images/adventure/Tarangire National Park Animals.jpg",
   },
   {
     id: 5,
@@ -43,7 +44,7 @@ const destinations = [
     name: "Ruaha National Park",
     description: "The wild, untamed heart of Tanzania",
     price: "Explore",
-    image: "https://images.unsplash.com/photo-1511497584788-876760111969?q=80&w=800",
+    image: "/images/adventure/Asilia_Camp-Lodges_Jabali-Private-House_Camp-Carousel11-800x800.jpg.webp",
   },
 ];
 

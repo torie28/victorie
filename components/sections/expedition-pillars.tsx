@@ -11,7 +11,7 @@ const features = [
   {
     title: "Kilimanjaro Treks",
     description: "Challenge",
-    image: "https://images.unsplash.com/photo-1589553416260-178fb95ee297?q=80&w=800",
+    image: "/images/mountains/Mount-Kilimanjaro.webp",
   },
   {
     title: "Zanzibar Retreats",
@@ -24,14 +24,14 @@ const features = [
     image: "https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?q=80&w=800",
   },
   {
-    title: "Cultural Odysseys",
+    title: "Mountain Adventures",
     description: "Heritage",
-    image: "https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?q=80&w=800",
+    image: "/images/mountains/mountkilimanjaro2.jpg",
   },
   {
     title: "Wilderness Retreats",
     description: "Sanctuary",
-    image: "https://images.unsplash.com/photo-1493246507139-91e8bef99c02?q=80&w=800",
+    image: "/images/adventure/Sanctuary-Retreats-Swala-Campa-Tanzania.jpg",
   },
 ];
 

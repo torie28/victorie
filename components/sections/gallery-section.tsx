@@ -12,14 +12,14 @@ export function GallerySection() {
   const lastScrollRef = useRef(0);
 
   const images = [
-    { src: "https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=1200", alt: "Serengeti National Park - Luxury Safari" },
-    { src: "https://images.unsplash.com/photo-1549194388-f61be84a6e9e?q=80&w=1200", alt: "Ngorongoro Crater - Exclusive Wildlife Reserve" },
-    { src: "https://images.unsplash.com/photo-1589553416260-178fb95ee297?q=80&w=1200", alt: "Mount Kilimanjaro - Premium Trekking Experience" },
-    { src: "https://images.unsplash.com/photo-1532581133596-f642456f9160?q=80&w=1200", alt: "Tarangire National Park - Bespoke Safari" },
+    { src: "/images/galleries/Bufaalolooking at the camera.jpg", alt: "Cultural Heritage Experience - Luxury Tourism" },
+    { src: "/images/adventure/lion.jpg", alt: "Serengeti National Park - Luxury Safari" },
+    { src: "/images/adventure/migration-river-wildebeest.webp", alt: "Ngorongoro Crater - Exclusive Wildlife Reserve" },
+    { src: "/images/mountains/Mount-Kilimanjaro-Tanzania.webp", alt: "Mount Kilimanjaro - Premium Trekking Experience" },
+    { src: "/images/adventure/tarangire-zebra-looking at the environment.jpg", alt: "Tarangire National Park - Bespoke Safari" },
     { src: "https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?q=80&w=1200", alt: "Zanzibar Archipelago - Luxury Retreat" },
-    { src: "https://images.unsplash.com/photo-1511497584788-876760111969?q=80&w=1200", alt: "Ruaha National Park - Private Wilderness" },
-    { src: "https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?q=80&w=1200", alt: "African Sunset - Photography Tour" },
-    { src: "https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?q=80&w=1200", alt: "Cultural Heritage Experience - Luxury Tourism" },
+    { src: "/images/carousel/giraffe_at_ngorongoro_highland.jpg", alt: "Ruaha National Park - Private Wilderness" },
+    { src: "/images/galleries/turtle.jpg", alt: "African Sunset - Photography Tour" },
   ];
 
   // Calculate section height based on content width

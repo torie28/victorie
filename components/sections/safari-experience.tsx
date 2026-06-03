@@ -159,7 +159,7 @@ export function SafariExperience() {
           >
             
             {/* Left Column */}
-            <div 
+            {/*<div 
               className="flex flex-col will-change-transform"
               style={{
                 width: `${sideWidth}%`,
@@ -178,14 +178,14 @@ export function SafariExperience() {
                   }}
                 >
                   <Image
-                    src={img.src || "/placeholder.svg"}
-                    alt={img.alt}
+                    src="/images/galleries/flamingo.jpg"
+                    alt=""
                     fill
                     className="object-cover"
                   />
                 </div>
               ))}
-            </div>
+            </div>*/}
 
             {/* Main Center Image */}
             <div 
@@ -198,7 +198,7 @@ export function SafariExperience() {
               }}
             >
               <Image
-                src="https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=2000"
+                src="/images/mountains/kilimanjaro-climb-sunrise-summit.jpg"
                 alt="Aerial view of camping expedition in wilderness"
                 fill
                 className="object-cover"
@@ -210,7 +210,7 @@ export function SafariExperience() {
                 className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center"
               >
                 <h2 className="max-w-3xl font-medium leading-tight tracking-tight text-white md:text-5xl lg:text-7xl text-5xl">
-                  {["Technology", "Meets", "Wilderness."].map((word, index) => {
+                  {["Kilimanjaro", "Trekking", "Tour."].map((word, index) => {
                     // Each word fades out sequentially based on scrollProgress
                     const wordFadeStart = index * 0.07; // Technology: 0, Meets: 0.07, Wilderness: 0.14
                     const wordFadeEnd = wordFadeStart + 0.07;
@@ -239,7 +239,7 @@ export function SafariExperience() {
             </div>
 
             {/* Right Column */}
-            <div 
+            {/*<div 
               className="flex flex-col will-change-transform"
               style={{
                 width: `${sideWidth}%`,
@@ -258,14 +258,14 @@ export function SafariExperience() {
                   }}
                 >
                   <Image
-                    src={img.src || "/placeholder.svg"}
-                    alt={img.alt}
+                    src="/images/galleries/marlin-clark-LE6BnG-Uufk-unsplash.jpg"
+                    alt=""
                     fill
                     className="object-cover"
                   />
                 </div>
               ))}
-            </div>
+            </div>*/}
 
           </div>
         </div>

@@ -3,29 +3,29 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
-const word = "EVASION";
+const word = "Victoria";
 
 const sideImages = [
   {
-    src: "https://images.unsplash.com/photo-1517824806704-9040b037703b?q=80&w=1000",
+    src: "/images/animals/Asilia_Camp-Lodges_Dunia_Camp-Carousel4-1.jpg.webp",
     alt: "Mountain hiking adventure",
     position: "left",
     span: 1,
   },
   {
-    src: "https://images.unsplash.com/photo-1510312305653-8ed496efae75?q=80&w=1000",
+    src: "/images/animals/wildebeest-migration-river-crossing-serengeti-safaris.jpg",
     alt: "Camping under stars",
     position: "left",
     span: 1,
   },
   {
-    src: "https://images.unsplash.com/photo-1533873984035-25970ab07461?q=80&w=1000",
+    src: "/images/animals/Serengeti-Balloon-Safari-andBeyond-Experience.jpg",
     alt: "Forest exploration",
     position: "right",
     span: 1,
   },
   {
-    src: "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?q=80&w=1000",
+    src: "/images/animals/Lion-and-Cub-in-Serengeti-National.jpg",
     alt: "Lake camping view",
     position: "right",
     span: 1,
@@ -126,7 +126,7 @@ export function HeroSection() {
               }}
             >
               <Image
-                src="/images/hero-main.png"
+                src="/images/animals/safari-serengeti-national-park.jpg"
                 alt="Mountain landscape with camping tent at sunset"
                 fill
                 className="object-cover"
