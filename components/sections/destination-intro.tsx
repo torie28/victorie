@@ -11,7 +11,6 @@ export function DestinationIntro() {
         <div className="max-w-md w-full">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-[9px] uppercase tracking-[0.2em] text-black/40 mb-10">
-            <span>Home</span>
             <span className="opacity-30">·</span>
             <span>Africa</span>
             <span className="opacity-30">·</span>
