@@ -1,138 +1,70 @@
 "use client";
 
-import Image from "next/image";
-import { useEffect, useRef, useState, useCallback } from "react";
-
 export function HeritageSection() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const [alpineTranslateX, setAlpineTranslateX] = useState(-100);
-  const [forestTranslateX, setForestTranslateX] = useState(100);
-  const [titleOpacity, setTitleOpacity] = useState(1);
-  const rafRef = useRef<number | null>(null);
-
-  const updateTransforms = useCallback(() => {
-    if (!sectionRef.current) return;
-
-    const rect = sectionRef.current.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
-    const sectionHeight = sectionRef.current.offsetHeight;
-
-    // Calculate progress based on scroll position
-    const scrollableRange = sectionHeight - windowHeight;
-    const scrolled = -rect.top;
-    const progress = Math.max(0, Math.min(1, scrolled / scrollableRange));
-
-    // Alpine comes from left (-100% to 0%)
-    setAlpineTranslateX((1 - progress) * -100);
-
-    // Forest comes from right (100% to 0%)
-    setForestTranslateX((1 - progress) * 100);
-
-    // Title fades out as blocks come together
-    setTitleOpacity(1 - progress);
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      // Cancel any pending animation frame
-      if (rafRef.current) {
-        cancelAnimationFrame(rafRef.current);
-      }
-
-      // Use requestAnimationFrame for smooth updates
-      rafRef.current = requestAnimationFrame(updateTransforms);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    updateTransforms();
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (rafRef.current) {
-        cancelAnimationFrame(rafRef.current);
-      }
-    };
-  }, [updateTransforms]);
-
   return (
-    <section id="products" className="bg-background">
-      {/* Scroll-Animated Product Grid */}
-      <div ref={sectionRef} className="relative" style={{ height: "200vh" }}>
-        <div className="sticky top-0 h-screen flex items-center justify-center">
-          <div className="relative w-full">
-            {/* Title - positioned behind the blocks */}
-            <div
-              className="absolute inset-0 flex items-center justify-center pointer-events-none z-0"
-              style={{ opacity: titleOpacity }}
-            >
-              <h2 className="text-[12vw] font-medium leading-[0.95] tracking-tighter text-foreground md:text-[10vw] lg:text-[8vw] text-center px-6">
-                Roots in the Savanna.
-              </h2>
+    <section id="heritage" className="bg-background py-24 md:py-32 lg:py-40">
+      <div className="container mx-auto px-6 md:px-12 lg:px-20">
+        <div className="max-w-4xl mx-auto">
+          {/* Main Headline */}
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tighter text-foreground mb-12 md:mb-16 leading-[1.1]">
+            Welcome to Your Extraordinary Safari Adventure
+          </h2>
+
+          <div className="space-y-12">
+            {/* Who We Are Section */}
+            <div>
+              <h3 className="text-xs uppercase tracking-widest text-muted-foreground mb-6">
+                Who We Are
+              </h3>
+              <p className="text-2xl md:text-3xl leading-snug text-foreground/90 font-light mb-8">
+                Dive into the wild elegance of Africa with Victoria Expeditions,
+                your gateway to an unparalleled safari experience. Let us guide
+                you through Tanzania's breathtaking landscapes and vibrant
+                cultures with bespoke safari adventures, meticulously crafted to
+                suit your unique desires.
+              </p>
             </div>
 
-            {/* Product Grid */}
-            <div className="relative z-10 grid grid-cols-1 gap-4 px-6 md:grid-cols-2 md:px-12 lg:px-20">
-              {/* Alpine Image - comes from left */}
-              <div
-                className="relative aspect-[4/3] overflow-hidden rounded-2xl"
-                style={{
-                  transform: `translate3d(${alpineTranslateX}%, 0, 0)`,
-                  WebkitTransform: `translate3d(${alpineTranslateX}%, 0, 0)`,
-                  backfaceVisibility: "hidden",
-                  WebkitBackfaceVisibility: "hidden",
-                }}
-              >
-                <Image
-                  src="https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=1000"
-                  alt="V1 Expedition Backpack in alpine setting"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute bottom-6 left-6">
-                  <span className="backdrop-blur-md px-4 py-2 text-sm font-medium rounded-full bg-[rgba(255,255,255,0.2)] text-white">
-                    Private Safaris
-                  </span>
-                </div>
+            {/* Detailed Heritage Story */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
+              <div className="space-y-6">
+                <p className="text-lg leading-relaxed text-muted-foreground">
+                  Welcome to Victoria Expeditions, where adventure meets
+                  heritage at the heart of Tanzania’s breathtaking landscapes.
+                  Named after the majestic Lake Victoria, where our journey
+                  began and where many of our dedicated team members call home,
+                  we are more than just a travel company. We are custodians of a
+                  rich tradition, guiding adventurers and explorers through the
+                  soul of Africa.
+                </p>
+                <p className="text-lg leading-relaxed text-muted-foreground">
+                  Our founders, seasoned veterans in safari and trekking
+                  expeditions, bring a wealth of experience and passion to every
+                  journey. With backgrounds steeped in guiding tours up the
+                  formidable peaks and across the sprawling national parks of
+                  Tanzania, our management team embodies the spirit of
+                  exploration and a deep love for our homeland.
+                </p>
               </div>
-
-              {/* Forest Image - comes from right */}
-              <div
-                className="relative aspect-[4/3] overflow-hidden rounded-2xl"
-                style={{
-                  transform: `translate3d(${forestTranslateX}%, 0, 0)`,
-                  WebkitTransform: `translate3d(${forestTranslateX}%, 0, 0)`,
-                  backfaceVisibility: "hidden",
-                  WebkitBackfaceVisibility: "hidden",
-                }}
-              >
-                <Image
-                  src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?q=80&w=1000"
-                  alt="V1 Thermal mug in forest setting"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute bottom-6 left-6">
-                  <span className="backdrop-blur-md px-4 py-2 text-sm font-medium rounded-full bg-[rgba(255,255,255,0.2)] text-white">
-                    Bespoke Treks
-                  </span>
-                </div>
+              <div className="space-y-6">
+                <p className="text-lg leading-relaxed text-muted-foreground">
+                  Whether you’re dreaming of a classic Serengeti adventure or a
+                  once-in-a-lifetime Ngorongoro Crater safari, we tailor each
+                  experience to reveal the extraordinary. From witnessing the
+                  Big Five in the crater’s unique ecosystem to standing on the
+                  rim of an ancient caldera, a Ngorongoro Crater safari offers
+                  an unforgettable encounter with nature’s grandeur.
+                </p>
+                <p className="text-lg leading-relaxed text-muted-foreground">
+                  At Victoria Expeditions, we take pride in delivering safe,
+                  authentic, and transformative journeys. If you’re seeking a
+                  true connection to the land and its people, let us design your
+                  perfect Ngorongoro Crater safari—a journey as rich and
+                  timeless as the land itself.
+                </p>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Description */}
-      <div className="px-6 py-20 md:px-12 md:py-28 lg:px-20 lg:py-36 lg:pb-14">
-        <div className="text-center">
-          <p className="text-xs uppercase tracking-widest text-muted-foreground">
-            Our Heritage
-          </p>
-          <p className="mt-8 leading-relaxed text-muted-foreground text-3xl text-center">
-            Alpine & Forest are high-tech outdoor accessories designed for
-            modern adventurers. Lightweight, durable, and engineered for extreme
-            conditions.
-          </p>
         </div>
       </div>
     </section>

@@ -2,6 +2,7 @@ import { Header } from "@/components/header";
 import { HeroSection } from "@/components/sections/hero-section";
 import { HeritageSection } from "@/components/sections/heritage-section";
 import { ExpeditionPillars } from "@/components/sections/expedition-pillars";
+import { DestinationIntro } from "@/components/sections/destination-intro";
 import { SafariExperience } from "@/components/sections/safari-experience";
 import { GallerySection } from "@/components/sections/gallery-section";
 import { DestinationShowcase } from "@/components/sections/destination-showcase";
@@ -16,6 +17,7 @@ export default function Home() {
       <HeroSection />
       <HeritageSection />
       <ExpeditionPillars />
+      <DestinationIntro />
       <SafariExperience />
       <GallerySection />
       <DestinationShowcase />
