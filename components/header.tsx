@@ -74,7 +74,7 @@ export function Header() {
               isScrolled ? "opacity-0 pointer-events-none" : "text-white opacity-100",
             )}
           >
-            VICTORIA
+            Victoria Expeditions
           </span>
         </Link>
 
@@ -109,22 +109,7 @@ export function Header() {
             className="w-full sm:w-[450px] bg-background/80 backdrop-blur-2xl border-l-border/10 flex flex-col p-0"
           >
             <div className="flex flex-col h-full px-8 sm:px-12">
-              <SheetHeader className="text-left pt-12 pb-8 border-b border-border/10">
-                <SheetTitle className="flex items-center gap-4">
-                  <div className="relative h-16 w-24 overflow-hidden border border-border/5">
-                    <Image
-                      src="/images/logo/solskinnlogoframe.jpg"
-                      alt="Victoria Logo"
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                  <span className="text-2xl font-bold tracking-[0.3em]">
-                    VICTORIA
-                  </span>
-                </SheetTitle>
-              </SheetHeader>
-
+              <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
               <nav className="flex flex-col gap-8 mt-16">
                 {navLinks.map((link, index) => (
                   <Link
