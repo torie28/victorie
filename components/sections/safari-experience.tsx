@@ -1,293 +1,137 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from "react";
 
-function ScrollRevealText({ text }: { text: string }) {
-  const containerRef = useRef<HTMLParagraphElement>(null);
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!containerRef.current) return;
-
-      const rect = containerRef.current.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      // Slower animation - more viewport range
-      const startOffset = windowHeight * 0.9;
-      const endOffset = windowHeight * 0.1;
-
-      const totalDistance = startOffset - endOffset;
-      const currentPosition = startOffset - rect.top;
-
-      const newProgress = Math.max(
-        0,
-        Math.min(1, currentPosition / totalDistance),
-      );
-      setProgress(newProgress);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Initial check
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const words = text.split(" ");
-
-  return (
-    <p
-      ref={containerRef}
-      className="text-3xl font-semibold leading-snug md:text-4xl lg:text-5xl"
-    >
-      {words.map((word, index) => {
-        const wordProgress = index / words.length;
-        const isRevealed = progress > wordProgress;
-
-        return (
-          <span
-            key={index}
-            className="transition-colors duration-150"
-            style={{
-              color: isRevealed ? "var(--foreground)" : "#e4e4e7",
-            }}
-          >
-            {word}
-            {index < words.length - 1 ? " " : ""}
-          </span>
-        );
-      })}
-    </p>
-  );
+interface SafariCard {
+  title: string;
+  description: string;
+  image: string;
 }
 
-const sideImages = [
+const safariCards: SafariCard[] = [
   {
-    src: "https://images.unsplash.com/photo-1493246507139-91e8bef99c02?q=80&w=1000",
-    alt: "Luxury Lodge",
-    position: "left",
-    span: 1,
+    title: "The Soul of the Wild",
+    description:
+      "From Kilimanjaro’s snow-capped peaks to the thundering plains of the Serengeti, discover a land of untamed wonder. Witness the epic Great Migration, explore the ancient Ngorongoro Crater, and immerse yourself in the rich heritage of the Maasai and the spice-scented shores of Zanzibar",
+    image: "/images/animals/safari-serengeti-national-park.jpg",
   },
   {
-    src: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?q=80&w=1000",
-    alt: "Savanna Wildlife",
-    position: "left",
-    span: 1,
+    title: "Tanzania – Home of the Great Migration",
+    description:
+      "Journey beyond the extraordinary. From the wilderness of the Serengeti and the depths of Ngorongoro to the vibrant culture of Zanzibar, Tanzania offers an unparalleled escape into nature.",
+    image:
+      "/images/animals/wildebeest-migration-river-crossing-serengeti-safaris.jpg",
   },
   {
-    src: "https://images.unsplash.com/photo-1589553416260-178fb95ee297?q=80&w=1000",
-    alt: "Kilimanjaro Summit",
-    position: "right",
-    span: 1,
-  },
-  {
-    src: "https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?q=80&w=1000",
-    alt: "Zanzibar Beach",
-    position: "right",
-    span: 1,
+    title: "Nature’s Greatest Spectacle",
+    description:
+      "The Serengeti is famous for the Great Migration, and is one of the seven Natural Wonders of Africa",
+    image:
+      "/images/adventure/serengeti-national-park-tanzania-national-parks-nasikia-camps-game-drives-tours-tanzania-safaris-africa-lion.jpg",
   },
 ];
 
 export function SafariExperience() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const textSectionRef = useRef<HTMLDivElement>(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const [textProgress, setTextProgress] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const descriptionText =
-    "Experience outdoor gear reimagined with cutting-edge technology. Alpine & Forest accessories combine ultra-lightweight materials, intelligent temperature control, and weather-resistant engineering to elevate every adventure. From Savanna Wildlifes to Luxury Lodges, your gear adapts to the conditions.";
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % safariCards.length);
+  };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!sectionRef.current) return;
-
-      const rect = sectionRef.current.getBoundingClientRect();
-      const scrollableHeight = window.innerHeight * 2;
-      const scrolled = -rect.top;
-      const progress = Math.max(0, Math.min(1, scrolled / scrollableHeight));
-
-      setScrollProgress(progress);
-
-      // Text scroll progress
-      if (textSectionRef.current) {
-        const textRect = textSectionRef.current.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-
-        const startOffset = windowHeight * 0.9;
-        const endOffset = windowHeight * 0.1;
-
-        const totalDistance = startOffset - endOffset;
-        const currentPosition = startOffset - textRect.top;
-
-        const newTextProgress = Math.max(
-          0,
-          Math.min(1, currentPosition / totalDistance),
-        );
-        setTextProgress(newTextProgress);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  // Title fades out first (0 to 0.2)
-  const titleOpacity = Math.max(0, 1 - (scrollProgress / 0.2));
-
-  // Image transforms start after title fades (0.2 to 1)
-  const imageProgress = Math.max(0, Math.min(1, (scrollProgress - 0.2) / 0.8));
-
-  // Smooth interpolations
-  const centerWidth = 100 - imageProgress * 58; // 100% to 42%
-  const centerHeight = 100 - imageProgress * 30; // 100% to 70%
-  const sideWidth = imageProgress * 22; // 0% to 22%
-  const sideOpacity = imageProgress;
-  const sideTranslateLeft = -100 + imageProgress * 100; // -100% to 0%
-  const sideTranslateRight = 100 - imageProgress * 100; // 100% to 0%
-  const borderRadius = imageProgress * 24; // 0px to 24px
-  const gap = imageProgress * 16; // 0px to 16px
-
-  // Calculate grayscale for text section based on textProgress
-  const grayscaleAmount = Math.round((1 - textProgress) * 100);
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev === 0 ? safariCards.length - 1 : prev - 1));
+  };
 
   return (
-    <section ref={sectionRef} className="relative bg-foreground">
-      {/* Sticky container for scroll animation */}
-      <div className="sticky top-0 h-screen overflow-hidden">
-        <div className="flex h-full w-full items-center justify-center">
-          {/* Bento Grid Container */}
-          <div
-            className="relative flex h-full w-full items-stretch justify-center"
-            style={{ gap: `${gap}px`, padding: `${imageProgress * 16}px` }}
-          >
-            {/* Left Column */}
-            {/*<div
-              className="flex flex-col will-change-transform"
-              style={{
-                width: `${sideWidth}%`,
-                gap: `${gap}px`,
-                transform: `translateX(${sideTranslateLeft}%)`,
-                opacity: sideOpacity,
-              }}
-            >
-              {sideImages.filter(img => img.position === "left").map((img, idx) => (
-                <div
-                  key={idx}
-                  className="relative overflow-hidden will-change-transform"
-                  style={{
-                    flex: img.span,
-                    borderRadius: `${borderRadius}px`,
-                  }}
-                >
-                  <Image
-                    src="/images/galleries/flamingo.jpg"
-                    alt=""
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              ))}
-            </div>*/}
+    <section className="relative bg-white">
+      {/* Header Section */}
+      <div className="px-6 py-24 md:px-16 md:py-32 lg:px-28 lg:py-40">
+        <div className="mx-auto max-w-[1440px]">
+          {/* Top Navigation */}
+          <div className="mb-12 text-base tracking-widest text-gray-600 font-medium">
+            WILDERNESS
+          </div>
 
-            {/* Main Center Image */}
-            <div
-              className="relative overflow-hidden will-change-transform"
-              style={{
-                width: `${centerWidth}%`,
-                height: "100%",
-                flex: "0 0 auto",
-                borderRadius: `${borderRadius}px`,
-              }}
-            >
-              <Image
-                src="/images/mountains/kilimanjaro-climb-sunrise-summit.jpg"
-                alt="Aerial view of camping expedition in wilderness"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-foreground/40" />
-
-              {/* Title Text - Fades out word by word with blur */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
-                <h2 className="max-w-3xl font-medium leading-tight tracking-tight text-white md:text-5xl lg:text-7xl text-5xl">
-                  {["Kilimanjaro", "Trekking", "Tour."].map((word, index) => {
-                    // Each word fades out sequentially based on scrollProgress
-                    const wordFadeStart = index * 0.07; // Technology: 0, Meets: 0.07, Wilderness: 0.14
-                    const wordFadeEnd = wordFadeStart + 0.07;
-                    const wordProgress = Math.max(0, Math.min(1, (scrollProgress - wordFadeStart) / (wordFadeEnd - wordFadeStart)));
-                    const wordOpacity = 1 - wordProgress;
-                    const wordBlur = wordProgress * 10; // 0px to 10px blur
-
-                    return (
-                      <span
-                        key={index}
-                        className="inline-block"
-                        style={{
-                          opacity: wordOpacity,
-                          filter: `blur(${wordBlur}px)`,
-                          transition: 'opacity 0.1s linear, filter 0.1s linear',
-                          marginRight: index < 2 ? "0.3em" : "0",
-                        }}
-                      >
-                        {word}
-                        {index === 1 && <br />}
-                      </span>
-                    );
-                  })}
-                </h2>
-              </div>
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
+            {/* Left Content */}
+            <div className="flex-1">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif text-gray-900 leading-tight max-w-2xl">
+                Start planning your Tanzanian adventure today
+              </h1>
             </div>
 
-            {/* Right Column */}
-            {/*<div
-              className="flex flex-col will-change-transform"
-              style={{
-                width: `${sideWidth}%`,
-                gap: `${gap}px`,
-                transform: `translateX(${sideTranslateRight}%)`,
-                opacity: sideOpacity,
-              }}
-            >
-              {sideImages.filter(img => img.position === "right").map((img, idx) => (
-                <div
-                  key={idx}
-                  className="relative overflow-hidden will-change-transform"
-                  style={{
-                    flex: img.span,
-                    borderRadius: `${borderRadius}px`,
-                  }}
-                >
-                  <Image
-                    src="/images/galleries/marlin-clark-LE6BnG-Uufk-unsplash.jpg"
-                    alt=""
-                    fill
-                    className="object-cover"
-                  />
+            {/* Right Content */}
+            <div className="flex flex-col justify-between">
+              <p className="mb-12 text-lg leading-relaxed text-gray-600 md:text-xl lg:text-2xl">
+                Begin crafting your ultimate Tanzanian safari with expert
+                insights on the ideal seasons, investment costs, exceptional
+                wilderness lodges, and the secrets to designing a seamless
+                itinerary across the Serengeti plains.
+              </p>
+
+              {/* Carousel Counter */}
+              <div className="flex items-center gap-6">
+                <span className="text-xl font-semibold text-gray-800">
+                  {String(currentIndex + 1).padStart(2, "0")} /{" "}
+                  {String(safariCards.length).padStart(2, "0")}
+                </span>
+                <div className="flex gap-3">
+                  <button
+                    onClick={handlePrev}
+                    className="rounded-full p-4 hover:bg-gray-100 transition-colors border border-gray-200"
+                    aria-label="Previous"
+                  >
+                    <ChevronLeft className="h-8 w-8 text-orange-600" />
+                  </button>
+                  <button
+                    onClick={handleNext}
+                    className="rounded-full p-4 hover:bg-gray-100 transition-colors border border-gray-200"
+                    aria-label="Next"
+                  >
+                    <ChevronRight className="h-8 w-8 text-orange-600" />
+                  </button>
                 </div>
-              ))}
-            </div>*/}
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Scroll space to enable animation */}
-      <div className="h-[200vh]" />
+      {/* Cards Carousel Section */}
+      <div className="overflow-hidden bg-white px-6 py-12 md:px-16 lg:px-28">
+        <div className="mx-auto max-w-[1440px]">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
+            {safariCards.map((card, index) => (
+              <div
+                key={index}
+                className="flex flex-col overflow-hidden rounded-xl bg-gray-50"
+              >
+                {/* Image Container */}
+                <div className="relative h-80 w-full overflow-hidden md:h-[500px]">
+                  <Image
+                    src={card.image}
+                    alt={card.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
 
-      {/* Description Section with Background Image and Scroll Reveal */}
-      <div
-        ref={textSectionRef}
-        className="relative overflow-hidden bg-background px-6 py-24 md:px-12 md:py-32 lg:px-20 lg:py-40"
-      >
-        {/* Background Image with Grayscale Filter */}
-
-        {/* Text Content */}
-        <div className="relative z-10 mx-auto max-w-4xl">
-          <ScrollRevealText text={descriptionText} />
+                {/* Content Container */}
+                <div className="flex flex-1 flex-col justify-between p-10">
+                  <div>
+                    <h3 className="mb-6 text-2xl font-semibold text-gray-800">
+                      {card.title}
+                    </h3>
+                    <p className="text-lg leading-relaxed text-gray-600">
+                      {card.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
