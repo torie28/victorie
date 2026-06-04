@@ -6,7 +6,8 @@ const features = [
   {
     title: "Private Safaris",
     description: "Exclusivity",
-    image: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?q=80&w=800",
+    image:
+      "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?q=80&w=800",
   },
   {
     title: "Kilimanjaro Treks",
@@ -16,12 +17,14 @@ const features = [
   {
     title: "Zanzibar Retreats",
     description: "Relaxation",
-    image: "https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?q=80&w=800",
+    image:
+      "https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?q=80&w=800",
   },
   {
     title: "Photography Tours",
     description: "Perspective",
-    image: "https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?q=80&w=800",
+    image:
+      "https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?q=80&w=800",
   },
   {
     title: "Mountain Adventures",

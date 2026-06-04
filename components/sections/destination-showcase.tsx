@@ -9,7 +9,8 @@ const destinations = [
     name: "Serengeti National Park",
     description: "The theater of the Great Migration",
     price: "Explore",
-    image: "/images/adventure/wildebeest-herd-running-serengeti-eliza-deacon-mr.jpg",
+    image:
+      "/images/adventure/wildebeest-herd-running-serengeti-eliza-deacon-mr.jpg",
   },
   {
     id: 2,
@@ -37,14 +38,16 @@ const destinations = [
     name: "Zanzibar Archipelago",
     description: "White sands and turquoise horizons",
     price: "Explore",
-    image: "https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?q=80&w=800",
+    image:
+      "https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?q=80&w=800",
   },
   {
     id: 6,
     name: "Ruaha National Park",
     description: "The wild, untamed heart of Tanzania",
     price: "Explore",
-    image: "/images/adventure/Asilia_Camp-Lodges_Jabali-Private-House_Camp-Carousel11-800x800.jpg.webp",
+    image:
+      "/images/adventure/Asilia_Camp-Lodges_Jabali-Private-House_Camp-Carousel11-800x800.jpg.webp",
   },
 ];
 
