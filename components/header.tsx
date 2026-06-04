@@ -70,8 +70,8 @@ export function Header() {
           </div>
           <span
             className={cn(
-              "text-3xl font-bold tracking-[0.2em] transition-colors duration-300",
-              isScrolled ? "text-foreground" : "text-white",
+              "text-3xl font-bold tracking-[0.2em] transition-all duration-300",
+              isScrolled ? "opacity-0 pointer-events-none" : "text-white opacity-100",
             )}
           >
             VICTORIA
