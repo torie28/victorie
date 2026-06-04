@@ -26,7 +26,7 @@ const TAB_DATA: Record<TabType, GalleryCard[]> = {
       title: "April–July",
       description:
         "This is known as the wet season and can bring heavy downpours, resulting in lush landscapes.",
-      image: "/images/adventure/giraffe-walking-freely.jpg",
+      image: "/images/galleries/elephant3.jpg",
     },
     {
       title: "July–October",
