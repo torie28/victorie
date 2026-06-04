@@ -17,6 +17,7 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -78,7 +79,7 @@ export function Header() {
         </Link>
 
         {/* Menu Button (Desktop & Mobile) */}
-        <Sheet>
+        <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
           <SheetTrigger asChild>
             <button
               type="button"
@@ -129,6 +130,7 @@ export function Header() {
                   <Link
                     key={link.name}
                     href={link.href}
+                    onClick={() => setIsMenuOpen(false)}
                     className="text-3xl font-light hover:text-primary transition-all tracking-tight animate-in fade-in slide-in-from-right-8 duration-700 fill-mode-both"
                     style={{ animationDelay: `${150 + index * 100}ms` }}
                   >
@@ -142,6 +144,7 @@ export function Header() {
                 >
                   <Link
                     href="#reserve"
+                    onClick={() => setIsMenuOpen(false)}
                     className="inline-block bg-foreground text-background px-10 py-5 text-sm font-bold uppercase tracking-[0.2em] hover:bg-foreground/90 transition-all"
                   >
                     Begin Your Journey
