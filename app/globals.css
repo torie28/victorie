@@ -126,6 +126,33 @@
 
     html {
         scroll-behavior: smooth;
+        scrollbar-width: thin;
+        scrollbar-color: var(--accent) transparent;
+    }
+
+    /* Custom golden scrollbar — replaces default browser appearance */
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: var(--accent);
+        border-radius: 9999px;
+        border: 2px solid transparent;
+        background-clip: content-box;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #c9a227;
+    }
+
+    ::-webkit-scrollbar-button {
+        display: none;
     }
 }
 
