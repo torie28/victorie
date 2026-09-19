@@ -59,9 +59,9 @@ export function Header() {
       <div className="flex items-center justify-between px-6 md:px-12">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-4 ml-8 md:ml-28">
-          <div className="relative h-20 w-32 overflow-hidden border border-white/5">
+          <div className="relative h-28 w-44 overflow-hidden border border-white/5">
             <Image
-              src="/images/logo/solskinnlogoframe.jpg"
+              src="/victoria expeditions web assets/new V-logos/victoria light BG logo.png"
               alt="Victoria Logo"
               fill
               className="object-contain"

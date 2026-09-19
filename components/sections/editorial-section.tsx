@@ -44,7 +44,7 @@ export function EditorialSection() {
           muted
           playsInline
           className="absolute inset-0 h-full w-full object-cover"
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bcdafadc-cb7e-4cb7-9cbf-edcbaf2360a5_1-cNBCz5fomcLRmm1cTXSBOKCq10VP91.mp4"
+          src="/victoria expeditions web assets/new V-photos/free victoria expeditions photos and videos/elephant feeding video.mp4"
         />
       </div>
     </section>
